@@ -4,7 +4,6 @@ class Contact
 
 	@@contacts = []
 	@@id = 1
-	@@app = []
 
 	def initialize(first_name, last_name, options = {})
 		@first_name = first_name
@@ -22,21 +21,33 @@ class Contact
 		@@contacts << new_contact
 	end
 
+	# 	# 1. Ask for a contact ID, then ask for confimation
+	# 	# 2. Get a contact based on the ID, from @@contacts array
+	# 	#    Loop through array, compare ID
+	# 	# 3. Call an instance method on that contact
+	# end
+
+	def self.find(id_to_look_for)
+		@@contacts.find { |contact| contact.id == id_to_look_for }
+	end
+
 	def self.all
 		@@contacts
 	end
 
 	def full_name
-		puts "#{first_name}, #{last_name}"
+		puts "#{first_name} #{last_name}"
 	end
 
-	def self.number(1)
-		1 += 1
+	def self.delete(id_found)
+		@@contacts.delete { |contact| contact.id == id_found }
 	end
 
 
+ end
 
-end
+	# If you need a contact from the @@contacts array, call a class method.
+	# If you want to change or print a single contact. Use an instance method.
 
 	# attr_accessor creates these methods
 
@@ -50,12 +61,3 @@ end
 	# 	@first_name = new_first_name
 	# end
 
-daniel.details
-andrew = Contact.new("Andrew", "Carter")
-andrew.full_name
-Contact.number()
-andrew = Contact.new
-andrew.full_name
-andrew.last_name
-andrew.options[:email]
-Contact.all
