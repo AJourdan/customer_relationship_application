@@ -40,21 +40,43 @@ class Contact
 	end
 
 	def self.delete(id_found)
-		@@contacts.delete { |contact| contact.id == id_found }
+		@@contacts.delete do |contact|
+		id_found.to_i == contact.id
 	end
 
 	# def self.modify_first(first_name)
 	# 	@first_name.delete { |contact| contact.id ==}
 	# end
 
-	def self.modify_last(last_name)
-	end
+	def self.display_attribute(attribute)
+		case attribute
+			# when "fullname" || "full name"
+			#   @@contacts.each do |contact|
+			# 	puts "#{contact.id}: #{full_name}"
+			# end
+		    when "first name"
+		      @@contacts.each do |contact|
+		        puts "#{contact.id}: #{contact.first_name}"
+		      end
+		    when "last name"
+		      @@contacts.each do |contact|
+		        puts "#{contact.id}: #{contact.last_name}"
+		      end
+		    when "email"
+		      @@contacts.each do |contact|
+		        puts "#{contact.id}: #{contact.email}"
+		      end
+    	end
+    end
 
-	def self.modify_email(email)
-	end
+	# def self.modify_last(last_name)
+	# end
 
-	def self.modify_notes(notes)
-	end
+	# def self.modify_email(email)
+	# end
+
+	# def self.modify_notes(notes)
+	# end
 
 
 

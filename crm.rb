@@ -59,17 +59,6 @@ class CRM
 	end
 
 
-	def display_contact_attributes
-		puts "What attribute do you want to display?"
-		case input
-		when 1 then display_name
-		when 2 then display_email
-		when 3 then display_notes
-		when 6 then exit
-		else puts "Sorry, that's not an option"
-		end
-	end
-
 	# def modify_contact
 	# 	puts "What is your contact ID?"
 	# 	eyedee = gets.chomp.to_i
@@ -122,7 +111,7 @@ end
 		puts "What contact ID do you want to delete?"
 		eyedee = gets.chomp.to_i
 
-		puts "Are you sure this is the ID you want to modify? (yes/no)"
+		puts "Are you sure this is the ID you want to delete? (yes/no)"
 		prompt = gets.chomp.downcase
 		contact = Contact.find(eyedee)
 		puts "Contact deleted"
@@ -138,29 +127,51 @@ end
 	end
 
 
-	def display_name
-		Contact.all.each do |contact|
-			puts "#{contact.full_name}"
-		end
-		puts "Press enter to continue"
-		continue = gets.chomp
+	def display_contact_attributes
+		puts "Which attribute would you like to display?
+		first name,
+		last name,
+		email,"
+		input = gets.chomp
+		Contact.display_attribute(input)
 	end
 
-	def display_email
-		Contact.all.each do |contact|
-			puts "#{contact.email}"
-		end
-		puts "Press enter to continue"
-		continue = gets.chomp
-	end
+	# def display_contact_attributes
+	# 	puts "What attribute do you want to display?"
+	# 	case input
+	# 	when 1 then display_name
+	# 	when 2 then display_email
+	# 	when 3 then display_notes
+	# 	when 6 then exit
+	# 	else puts "Sorry, that's not an option"
+	# 	end
+	# end
 
-	def display_notes
-		Contact.all.each do |contact|
-			puts "#{contact.notes}"
-		end
-		puts "Press enter to continue"
-		continue = gets.chomp
-	end
+
+
+	# def display_name
+	# 	Contact.all.each do |contact|
+	# 		puts "#{contact.full_name}"
+	# 	end
+	# 	puts "Press enter to continue"
+	# 	continue = gets.chomp
+	# end
+
+	# def display_email
+	# 	Contact.all.each do |contact|
+	# 		puts "#{contact.email}"
+	# 	end
+	# 	puts "Press enter to continue"
+	# 	continue = gets.chomp
+	# end
+
+	# def display_notes
+	# 	Contact.all.each do |contact|
+	# 		puts "#{contact.notes}"
+	# 	end
+	# 	puts "Press enter to continue"
+	# 	continue = gets.chomp
+	# end
 
 my_awesome_crm = CRM.new('Bitmaker_CRM')
 my_awesome_crm.main_menu
