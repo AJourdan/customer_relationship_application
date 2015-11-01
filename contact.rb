@@ -43,6 +43,20 @@ class Contact
 		@@contacts.delete { |contact| contact.id == id_found }
 	end
 
+	# def self.modify_first(first_name)
+	# 	@first_name.delete { |contact| contact.id ==}
+	# end
+
+	def self.modify_last(last_name)
+	end
+
+	def self.modify_email(email)
+	end
+
+	def self.modify_notes(notes)
+	end
+
+
 
  end
 
