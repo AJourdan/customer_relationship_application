@@ -42,6 +42,7 @@ class Contact
 	def self.delete(id_found)
 		@@contacts.delete do |contact|
 		id_found.to_i == contact.id
+		end
 	end
 
 	# def self.modify_first(first_name)
@@ -69,18 +70,11 @@ class Contact
     	end
     end
 
-	# def self.modify_last(last_name)
-	# end
-
-	# def self.modify_email(email)
-	# end
-
-	# def self.modify_notes(notes)
-	# end
-
-
-
  end
+
+
+
+
 
 	# If you need a contact from the @@contacts array, call a class method.
 	# If you want to change or print a single contact. Use an instance method.

@@ -59,6 +59,23 @@ class CRM
 	end
 
 
+
+	 def modify_contact
+    puts "Enter the first name of the contact you would like to modify"
+    contact_to_modify = gets.chomp
+    contact = Contact.find(id_to_modify)
+    puts "Are you sure? (y/n)"
+    answer = gets.chomp
+    if answer == "y"
+    	puts "What attribute would you like to change? 1) First name 2) Last name 3) Email 4) Notes"
+		attribute = gets.chomp.downcase
+		puts "What is the new attribute?"
+		new_value = gets.chomp
+	end
+
+  end
+
+
 	# def modify_contact
 	# 	puts "What is your contact ID?"
 	# 	eyedee = gets.chomp.to_i
